@@ -1,28 +1,84 @@
 @import './Variables.scss';
 
-.location-input-container {
-    margin: 2rem 4rem;
-    background-color: red;
-    height: 4rem;
-    position: relative;
-    font-family: $main-font;
+.detailee {
+    background-color: $secondary-color;
+    height: 88vh;
 
-    .input-prefix-icon {
-        position: absolute;
-        left: 25px;
-        bottom: 18px;
-        font-size: 1.5rem;
+    .location-input-container {
+        padding: 2rem 4rem;
+        height: 4rem;
+        position: relative;
+        font-family: $main-font;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .input-prefix-icon {
+            position: absolute;
+            left: 90px;
+            bottom: 45px;
+            font-size: 1.5rem;
+        }
+
+        .input-field {
+            margin: 0.8rem 0 0 1rem;
+            height: 2.4rem;
+            padding-left: 2.4rem;
+            font-size: 1.4rem;
+            padding-bottom: 2px;
+            width: 80%;
+            align-items: center;
+            border-radius: 0.5em;
+            border: 1px solid $border-color;
+            background-color: $blur;
+        }
     }
 
-    .input-field {
-        margin: 0.8rem 0 0 1rem;
-        height: 2.4rem;
-        padding-left: 2.4rem;
-        font-size: 1.4rem;
-        padding-bottom: 2px;
-        width: 80%;
+    //======== main tempurature ===========
+    .main-temp {
+        display: block;
+        text-align: center;
         align-items: center;
-        border-radius: 0.5em;
-        border: 1px solid $border-color
+        justify-content: center;
+        height: 15vh;
+
+        .city {
+            font-size: 1.5rem;
+        }
+
+        .description {
+            padding-left: 2rem;
+            color: $black;
+        }
+    }
+
+    //======== change degree =======
+    .deg-changing {
+        display: flex;
+        font-size: 1rem;
+        justify-content: end;
+        margin-top: 0.3rem;
+        margin-left: 1rem;
+
+        .metric {
+            padding: 10px 10px;
+            margin-right: 5px;
+            height: 1rem;
+            width: 1rem;
+            text-align: center;
+        }
+
+        .imperial {
+            padding: 10px 10px;
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+        }
+
+        .active {
+            border: 2px solid $border-color;
+            background-color: $border-color;
+            border-radius: 4px;
+        }
     }
 }

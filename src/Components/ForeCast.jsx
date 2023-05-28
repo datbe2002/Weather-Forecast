@@ -23,7 +23,6 @@ const ForeCast = () => {
             <div className="tempurature">
                 <div className="high-tempurature">
                     <FontAwesomeIcon icon={faTemperatureHigh} />  High:<span className='bold'> 50</span>
-
                 </div>
                 <div className="low-tempurature">
                     <FontAwesomeIcon icon={faTemperatureLow} />  Low:<span className='bold'> 50</span>

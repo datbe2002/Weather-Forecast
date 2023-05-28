@@ -3,7 +3,7 @@
 .forecast-details {
     font-family: Roboto;
     background-color: $main-color;
-    color: $white;
+    color: $black;
     height: 88vh;
 
     .dateNtime {
@@ -14,7 +14,7 @@
 
         .date {
             font-size: 20px;
-            border-right: 2px solid $blur;
+            border-right: 2px solid $border-color;
             padding-right: 7px;
         }
 
@@ -47,7 +47,7 @@
 
         .bold {
             font-weight: bold;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
     }
 
