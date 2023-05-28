@@ -1,0 +1,55 @@
+@import "./Variables.scss";
+
+.forecast-details {
+    font-family: Roboto;
+    background-color: $main-color;
+    color: $white;
+    height: 88vh;
+
+    .dateNtime {
+        display: flex;
+        justify-content: end;
+        padding: 20px;
+        align-items: center;
+
+        .date {
+            font-size: 20px;
+            border-right: 2px solid $blur;
+            padding-right: 7px;
+        }
+
+        .specific-time {
+            padding-left: 5px;
+            font-size: 20px;
+        }
+    }
+
+    .condition-weather {
+        display: flex;
+        font-size: 5em;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+    }
+
+    .tempurature {
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        width: 80%;
+        font-size: 1.5rem;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 12px;
+        background-color: $blur;
+
+
+
+        .bold {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+    }
+
+
+}
