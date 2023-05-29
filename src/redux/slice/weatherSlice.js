@@ -6,45 +6,82 @@ import { APP_ID } from "../../env";
 //https://api.openweathermap.org/data/2.5/weather?q=vietnam&appid=52310ba051cdbb72135c5b6affd7ab35&units=imperial
 
 const initialState = {
-    weatherData: [],
+    weatherDataCelsius: null,
+    // weatherDataFahrenheit: [],
+    degreeCondition: 'metric',
     error: null,
     loading: null,
 }
 
 
-export const getAllWeatherDataByCityName = createAsyncThunk(
-    "weather/all",
+export const getAllWeatherDataByCityNameCelcius = createAsyncThunk(
+    "weather/cityNameCelcius",
     async (params, thunkAPI) => {
-        const { location } = params
+        console.log(params)
+        const { location, units } = params
         try {
-            const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}`)
+            const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=${units}`)
             return res.data
         } catch (error) {
             console.log(error.response.data)
         }
     }
 )
+// export const getAllWeatherDataByCityNameFahrenheit = createAsyncThunk(
+//     "weather/cityNameFahrenheit",
+//     async (params, thunkAPI) => {
+//         const { location } = params
+//         try {
+//             const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=imperial`)
+//             return res.data
+//         } catch (error) {
+//             console.log(error.response.data)
+//         }
+//     }
+// )
 
 const weatherSlice = createSlice({
     name: 'weather',
     initialState,
-    reducers: {},
+    reducers: {
+        inCelsius: (state, action) => {
+            state.degreeCondition = action.payload
+        },
+        inFahrenheit: (state, action) => {
+            state.degreeCondition = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
-            .addCase(getAllWeatherDataByCityName.pending, (state) => {
+            .addCase(getAllWeatherDataByCityNameCelcius.pending, (state) => {
                 state.loading = true;
             })
-            .addCase(getAllWeatherDataByCityName.fulfilled, (state, action) => {
+            .addCase(getAllWeatherDataByCityNameCelcius.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.weatherData = action.payload;
+                state.weatherDataCelsius = action.payload;
             })
-            .addCase(getAllWeatherDataByCityName.rejected, (state, action) => {
+            .addCase(getAllWeatherDataByCityNameCelcius.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error;
             })
+
+        //---
+
+        // .addCase(getAllWeatherDataByCityNameFahrenheit.pending, (state) => {
+        //     state.loading = true;
+        // })
+        // .addCase(getAllWeatherDataByCityNameFahrenheit.fulfilled, (state, action) => {
+        //     state.loading = false;
+        //     state.error = false;
+        //     state.weatherDataFahrenheit = action.payload;
+        // })
+        // .addCase(getAllWeatherDataByCityNameFahrenheit.rejected, (state, action) => {
+        //     state.loading = false;
+        //     state.error = action.error;
+        // })
     }
 })
 
-export const { reducer: weatherReducer } = weatherSlice;
-export default weatherReducer
+const { reducer: weatherReducer, actions: { inCelsius, inFahrenheit } } = weatherSlice;
+export { inCelsius, inFahrenheit, weatherReducer as default };

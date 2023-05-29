@@ -1,18 +1,26 @@
 import Typography from 'antd/es/typography/Typography'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { getAllWeatherDataByCityNameCelcius, inCelsius, inFahrenheit } from '../redux/slice/weatherSlice';
 
-const ChangeDegree = () => {
+const ChangeDegree = ({ location }) => {
     const [active, setActive] = useState(1);
+
+    const dispatch = useDispatch()
 
     const handleChangeColor = (id) => {
         setActive(id);
         if (id === 1) {
-            console.log("°C")
+            // console.log("°C")
             //api call here
+            dispatch(inCelsius('metric'))
+            dispatch(getAllWeatherDataByCityNameCelcius({ location, units: 'metric' }))
             setActive(id)
         } else {
-            console.log("°F")
+            // console.log("°F")
             //api call
+            dispatch(inFahrenheit('imperial'))
+            dispatch(getAllWeatherDataByCityNameCelcius({ location, units: 'imperial' }))
             setActive(id)
         }
     };

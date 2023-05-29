@@ -1,8 +1,12 @@
 @import './Variables.scss';
 
 .detailee {
-    background-color: $secondary-color;
-    height: 88vh;
+    // background-color: $secondary-color;
+    height: 95vh;
+    color: $white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 20px 40px 0 20px;
+    border-radius: 10px;
 
     .location-input-container {
         padding: 2rem 4rem;
@@ -31,6 +35,7 @@
             border-radius: 0.5em;
             border: 1px solid $border-color;
             background-color: $blur;
+            color: $white;
         }
     }
 
@@ -40,15 +45,21 @@
         text-align: center;
         align-items: center;
         justify-content: center;
-        height: 15vh;
+        height: 18vh;
+        margin: 0 10rem;
+        color: $white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 8px;
+        padding: 20px 20px;
+        // background-color: $blur;
 
         .city {
             font-size: 1.5rem;
+            gap: 10px;
         }
 
         .description {
-            padding-left: 2rem;
-            color: $black;
+            font-size: 1rem;
         }
     }
 

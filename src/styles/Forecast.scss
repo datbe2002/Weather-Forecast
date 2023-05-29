@@ -2,9 +2,12 @@
 
 .forecast-details {
     font-family: Roboto;
-    background-color: $main-color;
+    // background-color: $main-color;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     color: $black;
-    height: 88vh;
+    height: 95vh;
+    margin: 20px 20px 0 40px;
+    border-radius: 10px;
 
     .dateNtime {
         display: flex;
@@ -27,9 +30,12 @@
     .condition-weather {
         display: flex;
         font-size: 5em;
-        justify-content: center;
-        align-items: center;
+        justify-content: right;
+        align-items: end;
         height: 40vh;
+        padding-right: 2rem;
+        font-family: 'Cabin', sans-serif;
+        font-weight: bold;
     }
 
     .tempurature {

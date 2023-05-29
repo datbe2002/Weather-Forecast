@@ -41,3 +41,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.container {
+	background: linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
+
+}
