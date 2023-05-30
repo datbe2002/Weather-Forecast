@@ -1,13 +1,17 @@
 @import "./Variables.scss";
 
 .forecast-details {
-    font-family: Roboto;
-    // background-color: $main-color;
+    font-family: $main-font;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    color: $black;
+    color: $white;
     height: 95vh;
     margin: 20px 20px 0 40px;
     border-radius: 10px;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // filter: blur(1px);
+    background-color: $secondary-color;
 
     .dateNtime {
         display: flex;
@@ -33,9 +37,10 @@
         justify-content: right;
         align-items: end;
         height: 40vh;
-        padding-right: 2rem;
-        font-family: 'Cabin', sans-serif;
+        padding-right: 5.5rem;
+        font-family: $main-font;
         font-weight: bold;
+        // background-image: url('../assets/iconWeather/01d@2x.png');
     }
 
     .tempurature {
@@ -56,6 +61,4 @@
             font-size: 1.5rem;
         }
     }
-
-
 }

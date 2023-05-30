@@ -7,8 +7,8 @@ const MainTempurature = ({ name, temp, description, units }) => {
     const metric = 'metric'
     return (
         <div className='main-temp'>
-            <Typography.Title style={{ fontFamily: 'Roboto', fontSize: '4.6rem', color: '#FAFAFA' }}>{temp}{units === 'metric' ? '°C' : '°F'}</Typography.Title>
-            <Typography style={{ fontFamily: 'Roboto', color: '#FAFAFA', display: 'flex', flexDirection: 'column' }}>
+            <Typography.Title className='main-temp-display' style={{ fontSize: '4.6rem' }}>{temp}{units === 'metric' ? '°C' : '°F'}</Typography.Title>
+            <Typography className='under-citydes' style={{ display: 'flex', flexDirection: 'column' }}>
                 <span className='city'>
                     <FontAwesomeIcon style={{ paddingRight: '10px' }} icon={faLocationDot} />
                     {name}

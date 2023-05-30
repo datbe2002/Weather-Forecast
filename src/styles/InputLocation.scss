@@ -7,6 +7,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 20px 40px 0 20px;
     border-radius: 10px;
+    background-color: $main-color;
 
     .location-input-container {
         padding: 2rem 4rem;
@@ -48,19 +49,32 @@
         height: 18vh;
         margin: 0 10rem;
         color: $white;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 8px;
         padding: 20px 20px;
-        // background-color: $blur;
 
-        .city {
-            font-size: 1.5rem;
-            gap: 10px;
+        .main-temp-display {
+            font-family: $main-font;
+            color: $white;
+            font-weight: 800;
         }
 
-        .description {
-            font-size: 1rem;
+        .under-citydes {
+
+            font-family: $main-font;
+            color: $white;
+            font-weight: 'bold';
+
+            .city {
+                font-size: 1.5rem;
+                gap: 10px;
+                font-weight: bold;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
         }
+
     }
 
     //======== change degree =======
@@ -92,4 +106,73 @@
             border-radius: 4px;
         }
     }
+
+    //===================
+    .five-day-forecast {
+        display: block;
+        justify-content: center;
+        // align-items: center;
+        // background-color: ;
+        height: 49vh;
+
+        .title-forecast {
+            text-align: center;
+            font-family: $main-font;
+            background-color: $blur;
+            color: $white;
+            width: fit-content;
+            margin: auto;
+            padding: 5px 5px;
+            border-radius: 10px;
+        }
+
+        .weather-card-container {
+
+            height: 4rem;
+            width: 80%;
+            margin: 1rem auto 0 auto;
+            border-radius: 10px;
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .weather-card-container.active {
+            color: $main-color;
+            background-color: #e0e1dd;
+            transform: translateX(-10px);
+        }
+
+        .infor {
+            width: 50%;
+            display: block;
+            // margin: auto;
+            padding-left: 10px;
+            font-weight: 600;
+
+            .date-new {
+                padding-top: 10px;
+                font-size: 20px;
+            }
+
+            .des {
+                padding-top: 5px;
+
+                font-size: 15px;
+            }
+        }
+
+        .date-next-temp {
+            display: grid;
+            grid-template-columns: auto;
+            width: 8rem;
+            justify-content: end;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            border-left: 2px solid $blur ;
+        }
+    }
+
+    //===================
+
 }

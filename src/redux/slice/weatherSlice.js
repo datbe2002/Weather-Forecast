@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axiosCustom from "../../apis/OpenWeatherAPI";
 import { APP_ID } from "../../env";
+import { toast } from "react-toastify";
 
 //https://api.openweathermap.org/data/2.5/weather?q=vietnam&appid=52310ba051cdbb72135c5b6affd7ab35&units=imperial
 
@@ -22,23 +23,16 @@ export const getAllWeatherDataByCityNameCelcius = createAsyncThunk(
         try {
             const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=${units}`)
             return res.data
+
         } catch (error) {
+            toast.error(error.response.data.message, {
+                position: toast.POSITION.TOP_RIGHT
+            });
             console.log(error.response.data)
         }
     }
 )
-// export const getAllWeatherDataByCityNameFahrenheit = createAsyncThunk(
-//     "weather/cityNameFahrenheit",
-//     async (params, thunkAPI) => {
-//         const { location } = params
-//         try {
-//             const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=imperial`)
-//             return res.data
-//         } catch (error) {
-//             console.log(error.response.data)
-//         }
-//     }
-// )
+
 
 const weatherSlice = createSlice({
     name: 'weather',
@@ -59,7 +53,9 @@ const weatherSlice = createSlice({
             .addCase(getAllWeatherDataByCityNameCelcius.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.weatherDataCelsius = action.payload;
+                if (action.payload) {
+                    state.weatherDataCelsius = action.payload;
+                }
             })
             .addCase(getAllWeatherDataByCityNameCelcius.rejected, (state, action) => {
                 state.loading = false;
