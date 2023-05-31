@@ -3,13 +3,10 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axiosCustom from "../../apis/OpenWeatherAPI";
 import { APP_ID } from "../../env";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
 
-//https://api.openweathermap.org/data/2.5/weather?q=vietnam&appid=52310ba051cdbb72135c5b6affd7ab35&units=imperial
 
 const initialState = {
     weatherDataCelsius: null,
-    // weatherDataFahrenheit: [],
     degreeCondition: 'metric',
     weatherNextFiveDate: null,
     location: 'Vietnam',
@@ -27,18 +24,14 @@ export const getAllWeatherDataByCityNameCelcius = createAsyncThunk(
         const { location, units } = params
         try {
             const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=${units}`)
-            // if()
-            console.log(res.data)
             thunkAPI.dispatch(setNewLocation(location))
             return res.data
 
         } catch (error) {
-
             toast.error(error.response.data.message, {
                 position: toast.POSITION.TOP_LEFT
             });
             return error.response.data
-
         }
     }
 )
@@ -49,8 +42,6 @@ export const getWeatherForecast5days = createAsyncThunk(
         try {
             const res = await axiosCustom.get(`/forecast?q=${location}&appid=${APP_ID}&units=${units}`)
             const newData = res.data.list.filter(day => day.dt_txt.includes("00:00:00"))
-
-            console.log(newData)
             return newData
         } catch (error) {
             console.log(error.response.data)

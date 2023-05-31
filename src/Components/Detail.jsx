@@ -24,7 +24,7 @@ const Detail = () => {
             <MainTempurature name={name} temp={temp} description={description} units={units} />
             <Divider />
             <FiveDaysForecast />
-
+            <div className="bottom">Make by Truong Tan Dat</div>
         </div>
     )
 }

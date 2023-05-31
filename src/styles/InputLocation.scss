@@ -174,5 +174,12 @@
     }
 
     //===================
-
+    .bottom {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 3vh;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+    }
 }
