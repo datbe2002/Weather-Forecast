@@ -47,7 +47,6 @@
         align-items: center;
         justify-content: center;
         height: 18vh;
-        margin: 0 10rem;
         color: $white;
         border-radius: 8px;
         padding: 20px 20px;
@@ -84,6 +83,7 @@
         justify-content: end;
         margin-top: 0.3rem;
         margin-left: 1rem;
+        cursor: pointer;
 
         .metric {
             padding: 10px 10px;
@@ -134,6 +134,7 @@
             border-radius: 10px;
             display: flex;
             transition: transform 0.4s ease;
+            cursor: pointer;
         }
 
         .weather-card-container.active {

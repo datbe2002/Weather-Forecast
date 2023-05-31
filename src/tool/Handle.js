@@ -83,7 +83,6 @@ import thunderstorm from '../assets/backgroudWeather/Thunderstorm.jpg'
 import clear from '../assets/backgroudWeather/Clear.jpg'
 
 export const weatherBackgroud = (main) => {
-    console.log(main)
     switch (main) {
         case 'Clouds':
             return clouds

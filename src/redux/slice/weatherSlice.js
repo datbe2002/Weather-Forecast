@@ -51,12 +51,11 @@ export const getWeatherForecast5days = createAsyncThunk(
 export const fiveDayDataEveryDay = createAsyncThunk(
     'weather/dataoffiveday',
     async (params, thunkAPI) => {
-        console.log(params)
         const { dt, main, weather, wind, name } = params
         try {
             return { dt, main, weather, wind, name }
         } catch (error) {
-
+            console.log(error.response.data)
         }
     }
 )
@@ -129,7 +128,6 @@ const weatherSlice = createSlice({
             .addCase(fiveDayDataEveryDay.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                console.log(action.payload)
                 if (action.payload) {
                     state.weatherDataCelsius = action.payload;
                 }

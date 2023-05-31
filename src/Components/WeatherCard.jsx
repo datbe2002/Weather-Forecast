@@ -25,7 +25,6 @@ const WeatherCard = () => {
             name: location
         }
         dispatch(setActiveFor5Day(index));
-        console.log(location)
         dispatch(fiveDayDataEveryDay(newDataObj))
     };
 
