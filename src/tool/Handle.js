@@ -35,7 +35,6 @@ import pic17 from '../assets/iconWeather/50d@2x.png'
 import pic18 from '../assets/iconWeather/50n@2x.png'
 
 export const weatherIcon = (iconCode) => {
-    console.log(iconCode)
     switch (iconCode) {
         case '01d':
             return pic1

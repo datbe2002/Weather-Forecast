@@ -101,8 +101,8 @@
         }
 
         .active {
-            border: 2px solid $border-color;
-            background-color: $border-color;
+            border: none;
+            background-color: $blur;
             border-radius: 4px;
         }
     }
@@ -133,7 +133,7 @@
             margin: 1rem auto 0 auto;
             border-radius: 10px;
             display: flex;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .weather-card-container.active {

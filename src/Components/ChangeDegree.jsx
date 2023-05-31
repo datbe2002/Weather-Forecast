@@ -1,12 +1,14 @@
 import Typography from 'antd/es/typography/Typography'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllWeatherDataByCityNameCelcius, inCelsius, inFahrenheit } from '../redux/slice/weatherSlice';
 
-const ChangeDegree = ({ location }) => {
+const ChangeDegree = () => {
     const [active, setActive] = useState(1);
 
     const dispatch = useDispatch()
+
+    const location = useSelector(state => state.weather.location)
 
     const handleChangeColor = (id) => {
         setActive(id);

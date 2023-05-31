@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/Forecast.scss'
 import { Divider } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTemperatureHigh, faTemperatureLow, faWind, faWater } from '@fortawesome/free-solid-svg-icons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { convertDate, groudUp, weatherIcon } from '../tool/Handle'
 import Timer from './Timer'
+import { getAllWeatherDataByCityNameCelcius, setActive, setActiveFor5Day, setNewLocation } from '../redux/slice/weatherSlice'
+import { getWeatherForecast5days } from '../redux/slice/weatherSlice'
 
 
 
@@ -21,12 +23,26 @@ const ForeCast = () => {
     const windSpeed = groudUp(weatherDataCelsius?.wind.speed)
     const formattedDate = convertDate(weatherDataCelsius?.dt, 'long')
     const icon = weatherIcon(weatherDataCelsius?.weather[0].icon)
+    const { active } = useSelector(state => state.weather)
+    const city = ['London', 'New York', 'Paris', 'Moscow', 'Berlin', 'Beijing']
+
+    const dispatch = useDispatch()
+    const { change } = useSelector((state) => state.weather)
 
 
+    useEffect(() => {
+        dispatch(setActive(null))
+    }, [change])
+
+    const handleChangeCity = (location, index) => {
+        dispatch(getAllWeatherDataByCityNameCelcius({ location, units }))
+        dispatch(getWeatherForecast5days({ location, units }))
+        dispatch(setNewLocation(location))
+        dispatch(setActive(index))
+        dispatch(setActiveFor5Day(null))
+    }
     return (
-        <div className='forecast-details'
-        // style={{ backgroundImage: `url(${backgroudWeather}` }}
-        >
+        <div className='forecast-details'>
             <div className="dateNtime">
                 <div className="date">
                     {formattedDate}
@@ -68,6 +84,15 @@ const ForeCast = () => {
                 </div>
             </div>
             <Divider />
+            <div className="city-world">
+                <div className="city-container">
+                    {city.map((c, index) =>
+                        <div key={index} className={`city-list ${active === index ? 'active' : ''}`}
+                            onClick={() => handleChangeCity(c, index)}
+                        >{c}</div>
+                    )}
+                </div>
+            </div>
         </div>
     )
 }

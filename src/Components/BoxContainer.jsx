@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import ForeCast from './ForeCast'
 import Detail from './Detail'
 import { useDispatch, useSelector } from 'react-redux'
-import { defaultLocation } from '../env'
 import { getAllWeatherDataByCityNameCelcius } from '../redux/slice/weatherSlice'
 import '../App.css'
 
@@ -12,10 +11,12 @@ const BoxContainer = () => {
     const dispatch = useDispatch()
 
 
+
     const units = useSelector(state => state.weather.degreeCondition)
+    const { location } = useSelector(state => state.weather)
 
     useEffect(() => {
-        dispatch(getAllWeatherDataByCityNameCelcius({ location: defaultLocation, units }))
+        dispatch(getAllWeatherDataByCityNameCelcius({ location: location, units }))
     }, [])
 
     return (

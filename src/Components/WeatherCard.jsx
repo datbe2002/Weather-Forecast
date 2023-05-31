@@ -1,60 +1,82 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import pci1 from '../assets/iconWeather/04d@2x.png'
 import pci2 from '../assets/iconWeather/04d@2x.png'
 import pci3 from '../assets/iconWeather/04d@2x.png'
 import pci4 from '../assets/iconWeather/04d@2x.png'
 import pci5 from '../assets/iconWeather/04d@2x.png'
 import Image from './Image'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { fiveDayDataEveryDay, getWeatherForecast5days, setActiveFor5Day } from '../redux/slice/weatherSlice'
+import { convertDate, groudUp } from '../tool/Handle'
 const WeatherCard = () => {
 
     const units = useSelector(state => state.weather.degreeCondition)
 
-    const [activeCardIndex, setActiveCardIndex] = useState(null);
+    const { activeFor5day } = useSelector(state => state.weather)
+    // const [activeCardIndex, setActiveCardIndex] = useState(null);
 
-    const handleClick = (index) => {
-        setActiveCardIndex(index);
+    const weatherData = useSelector(state => state.weather.weatherNextFiveDate)
+
+    const { location } = useSelector(state => state.weather)
+
+    const handleClick = (data, index) => {
+        const newDataObj = {
+            ...data,
+            name: location
+        }
+        dispatch(setActiveFor5Day(index));
+        console.log(location)
+        dispatch(fiveDayDataEveryDay(newDataObj))
     };
 
-    const weatherData = [
-        { pci: pci1 },
-        { pci: pci2 },
-        { pci: pci3 },
-        { pci: pci4 },
-        { pci: pci5 },
-    ];
+    const dispatch = useDispatch()
 
-    const dateTempMax = 0
-    const dateTempMin = 10
+    useEffect(() => {
+        dispatch(getWeatherForecast5days({ location, units }))
+    }, [location, units])
+
+
+    const tempFunc = (temp) => {
+        const newTemp = groudUp(temp)
+        return newTemp
+    }
+
+    const date = (data) => {
+        const newD = convertDate(data)
+        const datewithoutYear = newD.split(",")
+        const newD2 = datewithoutYear[0].trim()
+        return newD2
+    }
+
+
     return (
         <div>
 
-            {weatherData.map((data, index) => (
+            {weatherData?.map((data, index) => (
                 <div
                     key={index}
-                    className={`weather-card-container ${activeCardIndex === index ? 'active' : ''}`}
-                    onClick={() => handleClick(index)}
+                    className={`weather-card-container ${activeFor5day === index ? 'active' : ''}`}
+                    onClick={() => handleClick(data, index)}
                 >
                     <Image data={data} />
                     <div className='infor'>
                         <div className="date-new">
-                            Sun, April 6
+                            {date(data.dt)}
                         </div>
                         <div className="des">
-                            clouds few
+                            {data.weather[0].description}
                         </div>
                     </div>
                     <div className="date-next-temp">
                         <div className="date-high-temp">
                             <span>
-                                {/* {data.dateTempMax} */}
-                                20°
+                                {tempFunc(data.main.temp_max)}°
+
                             </span>
                         </div>
                         <div className="date-low-temp">
                             <span>
-                                {/* {data.dateTempMin} */}
-                                40°
+                                {tempFunc(data.main.temp_min)}°
                             </span>
                         </div>
                     </div>

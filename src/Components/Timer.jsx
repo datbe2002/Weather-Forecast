@@ -1,17 +1,22 @@
 import moment from 'moment/moment';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
 export default function Timer(props) {
-    const dddd = props.timestamp
-    const [date, setDate] = React.useState(dddd);
-    React.useEffect(() => {
-        const timerID = setInterval(() => tick(), 1000);
 
-        return function cleanup() {
-            clearInterval(timerID);
-        };
+
+    const [date, setDate] = useState(props.timestamp);
+
+    useEffect(() => {
+        if (date) {
+            const timerID = setInterval(() => tick(), 1000);
+
+            return function cleanup() {
+                clearInterval(timerID);
+            };
+        }
+
     });
 
     function tick() {
