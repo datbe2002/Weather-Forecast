@@ -45,7 +45,6 @@ export const getWeatherForecast5days = createAsyncThunk(
             const newData = res.data.list.filter(day => day.dt_txt.includes("00:00:00"))
             return newData
         } catch (error) {
-            console.log(error.response.data)
         }
     }
 )
@@ -56,7 +55,6 @@ export const fiveDayDataEveryDay = createAsyncThunk(
         try {
             return { dt, main, weather, wind, name }
         } catch (error) {
-            console.log(error.response.data)
         }
     }
 )
