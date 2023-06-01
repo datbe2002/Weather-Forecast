@@ -21,11 +21,11 @@ const BoxContainer = () => {
 
     return (
         <div className='container'>
-            <Row style={{ height: '100vh', borderRadius: '10px' }}>
-                <Col span={16}>
+            <Row style={{ borderRadius: '10px' }}>
+                <Col>
                     <ForeCast />
                 </Col>
-                <Col span={8}>
+                <Col>
                     <Detail />
                 </Col>
 

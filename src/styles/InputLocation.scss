@@ -1,13 +1,16 @@
 @import './Variables.scss';
 
+
 .detailee {
     // background-color: $secondary-color;
     height: 95vh;
+    width: 25vw;
     color: $white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 20px 40px 0 20px;
     border-radius: 10px;
     background-color: $main-color;
+    margin-bottom: 30px;
 
     .location-input-container {
         padding: 2rem 4rem;
@@ -140,6 +143,7 @@
         .weather-card-container.active {
             color: $main-color;
             background-color: #e0e1dd;
+            padding-right: 15px;
             transform: translateX(-10px);
         }
 
@@ -183,4 +187,114 @@
         font-family: 'Times New Roman', Times, serif;
         font-weight: 600;
     }
+}
+
+@media only screen and (max-width: #{$mobile-width + 1px}) {
+    .detailee {
+        width: 95%;
+        height: auto;
+        margin: 10px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .location-input-container {
+            flex-direction: column;
+
+            .input-prefix-icon {
+                left: 80px;
+                bottom: 70px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .deg-changing {
+            margin-top: 0.5rem;
+            margin-left: 0;
+        }
+
+        .main-temp {
+            padding: 0;
+            margin-top: 40px;
+
+            .main-temp-display {
+                font-weight: 750;
+            }
+        }
+
+        .five-day-forecast {
+            margin-top: 260px;
+            height: 100%;
+            width: 95vw;
+            padding-bottom: 20px;
+
+            .weather-card-container {
+                transition: transform 0.6s ease;
+            }
+
+            .weather-card-container.active {
+                color: $main-color;
+                background-color: #e0e1dd;
+                padding-right: 12px;
+                transform: scale(1.02);
+            }
+
+            .infor {
+                // width: 50%;
+                // display: block;
+                // // margin: auto;
+                // padding-left: 10px;
+                // font-weight: 600;
+
+                .date-new {
+                    padding-top: 10px;
+                    font-size: 20px;
+                }
+
+                .des {
+                    padding-top: 5px;
+
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .bottom {
+            display: none;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: #{$ipad-pro-width + 1px}) {
+
+    .detailee {
+        position: absolute;
+        width: 30vh;
+
+        .location-input-container {
+            flex-direction: column;
+            height: 6rem;
+
+            .input-prefix-icon {
+                position: absolute;
+                left: 87px;
+                bottom: 82px;
+                font-size: 1.5rem;
+            }
+
+            .input-field {
+                height: 2rem;
+                padding-left: 2.4rem;
+                font-size: 1rem;
+            }
+        }
+
+        .main-temp {
+            padding: 0 20px;
+
+        }
+    }
+
 }

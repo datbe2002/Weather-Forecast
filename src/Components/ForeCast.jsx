@@ -24,7 +24,7 @@ const ForeCast = () => {
     const formattedDate = convertDate(weatherDataCelsius?.dt, 'long')
     const icon = weatherIcon(weatherDataCelsius?.weather[0].icon)
     const { active } = useSelector(state => state.weather)
-    const city = ['London', 'New York', 'Paris', 'Moscow', 'Berlin', 'Beijing']
+    const city = ['London', 'New York', 'Paris', 'Moscow']
 
     const dispatch = useDispatch()
     const { change } = useSelector((state) => state.weather)

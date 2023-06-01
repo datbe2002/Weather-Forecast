@@ -4,9 +4,11 @@
     font-family: $main-font;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     color: $white;
+    width: 65vw;
     height: 95vh;
     margin: 20px 20px 0 40px;
     border-radius: 10px;
+    margin-bottom: 30px;
     background-color: $secondary-color;
 
     .dateNtime {
@@ -89,31 +91,82 @@
     }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: #{$mobile-width + 1px}) {
     .forecast-details {
-        margin: 20px;
-        height: auto;
+        position: absolute;
+        width: 95%;
+        height: 95vh;
+        margin: 10px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         .dateNtime {
-            justify-content: center;
-        }
-
-        .condition-weather {
-            justify-content: center;
-            padding-right: 0;
-            font-size: 4em;
-            height: auto;
+            position: relative;
+            top: 140px;
+            right: 50px;
+            z-index: 1;
+            padding: 0;
+            width: 100vw;
         }
 
         .tempurature {
-            width: 100%;
+            position: relative;
+            width: 60vw !important;
+            left: 30px;
+            z-index: 1;
+            padding: 2rem !important;
+            margin: 0 auto !important;
             flex-direction: column;
-            align-items: center;
-            font-size: 1.2rem;
+            align-items: flex-start;
+            bottom: 140px;
+            gap: 1rem;
+            font-size: 1.2rem !important;
+
         }
 
+        .condition-weather,
         .city-world {
-            height: auto;
+            display: none !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: #{$ipad-pro-width + 1px}) {
+    .forecast-details {
+        width: 37vh;
+
+        .condition-weather {
+            height: 25vh;
+            font-size: 3em;
+        }
+
+        .tempurature {
+            flex-direction: column;
+            // justify-content: left;
+            text-align: inherit;
+            padding: 2rem;
+            width: max-content;
+
+            .high-tempurature {
+                padding-bottom: 10px;
+            }
+
+            .low-tempurature {
+                padding-bottom: 10px;
+            }
+
+            .humidity {
+                padding-bottom: 10px;
+            }
+
+        }
+
+        .city-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

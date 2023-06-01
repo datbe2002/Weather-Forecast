@@ -24,7 +24,8 @@ export const getAllWeatherDataByCityNameCelcius = createAsyncThunk(
         const { location, units } = params
         try {
             const res = await axiosCustom.get(`/weather?q=${location}&appid=${APP_ID}&units=${units}`)
-            thunkAPI.dispatch(setNewLocation(location))
+            const cityName = res.data.name
+            thunkAPI.dispatch(setNewLocation(cityName))
             return res.data
 
         } catch (error) {

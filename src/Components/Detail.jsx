@@ -20,11 +20,11 @@ const Detail = () => {
     return (
         <div className='detailee'>
             <InputLocation placeholder={'Search city'} units={units} />
-            <Divider />
+            {/* <Divider /> */}
             <MainTempurature name={name} temp={temp} description={description} units={units} />
             <Divider />
             <FiveDaysForecast />
-            <div className="bottom">Make by Truong Tan Dat</div>
+            {/* <div className="bottom">Make by Truong Tan Dat</div> */}
         </div>
     )
 }
