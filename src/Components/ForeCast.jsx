@@ -55,7 +55,7 @@ const ForeCast = () => {
             <Divider />
 
             <div className="condition-weather">
-                <img width={200} height={200} src={icon} alt='image' />
+                <img className='icon-weather' src={icon} alt='image' />
 
                 {condition_weather}
             </div>

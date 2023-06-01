@@ -19,7 +19,7 @@ const Detail = () => {
 
     return (
         <div className='detailee'>
-            <InputLocation placeholder={'Search city'} units={units} />
+            <InputLocation placeholder={'Search'} units={units} />
             {/* <Divider /> */}
             <MainTempurature name={name} temp={temp} description={description} units={units} />
             <Divider />

@@ -1,5 +1,6 @@
 @import "./Variables.scss";
 
+// @media only screen and (max-width: #{$pc-width + 1px}) and (min-width: #{$ipad-pro-width + 1px}) {
 .forecast-details {
     font-family: $main-font;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -38,7 +39,12 @@
         padding-right: 5.5rem;
         font-family: $main-font;
         font-weight: bold;
+
         // background-image: url('../assets/iconWeather/01d@2x.png');
+        .icon-weather {
+            width: 200px;
+            height: 200px
+        }
     }
 
     .tempurature {
@@ -91,6 +97,8 @@
     }
 }
 
+// }
+
 @media only screen and (max-width: #{$mobile-width + 1px}) {
     .forecast-details {
         position: absolute;
@@ -140,6 +148,11 @@
         .condition-weather {
             height: 25vh;
             font-size: 3em;
+
+            .icon-weather {
+                width: 100px;
+                height: 100px
+            }
         }
 
         .tempurature {
@@ -169,4 +182,47 @@
             align-items: center;
         }
     }
+}
+
+@media only screen and (max-width: #{$laptop + 1px}) and (min-width: #{$ipad-pro-width + 1px}) {
+    // .forecast-details {
+    //     width: 37vh;
+
+    //     .condition-weather {
+    //         height: 25vh;
+    //         font-size: 3em;
+
+    //         .icon-weather {
+    //             width: 100px;
+    //             height: 100px
+    //         }
+    //     }
+
+    //     .tempurature {
+    //         flex-direction: column;
+    //         // justify-content: left;
+    //         text-align: inherit;
+    //         padding: 2rem;
+    //         width: max-content;
+
+    //         .high-tempurature {
+    //             padding-bottom: 10px;
+    //         }
+
+    //         .low-tempurature {
+    //             padding-bottom: 10px;
+    //         }
+
+    //         .humidity {
+    //             padding-bottom: 10px;
+    //         }
+
+    //     }
+
+    //     .city-list {
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //     }
+    // }
 }
