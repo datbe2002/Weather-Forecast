@@ -9,9 +9,6 @@ import '../App.css'
 const BoxContainer = () => {
 
     const dispatch = useDispatch()
-
-
-
     const units = useSelector(state => state.weather.degreeCondition)
     const { location } = useSelector(state => state.weather)
 

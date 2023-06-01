@@ -13,7 +13,6 @@ const WeatherCard = () => {
     const units = useSelector(state => state.weather.degreeCondition)
 
     const { activeFor5day } = useSelector(state => state.weather)
-    // const [activeCardIndex, setActiveCardIndex] = useState(null);
 
     const weatherData = useSelector(state => state.weather.weatherNextFiveDate)
 
@@ -82,9 +81,6 @@ const WeatherCard = () => {
                 </div>
             ))}
         </div>
-        // <div className='weather-card-container active'>
-        //     <img className='icon-weather-card' src={pci} height={65} width={65} alt="pic" />
-        // </div>
     )
 }
 

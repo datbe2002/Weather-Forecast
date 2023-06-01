@@ -13,12 +13,10 @@ const ChangeDegree = () => {
     const handleChangeColor = (id) => {
         setActive(id);
         if (id === 1) {
-            //api call here
             dispatch(inCelsius('metric'))
             dispatch(getAllWeatherDataByCityNameCelcius({ location, units: 'metric' }))
             setActive(id)
         } else {
-            //api call
             dispatch(inFahrenheit('imperial'))
             dispatch(getAllWeatherDataByCityNameCelcius({ location, units: 'imperial' }))
             setActive(id)

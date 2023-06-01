@@ -10,29 +10,15 @@ import { toast } from 'react-toastify'
 
 const InputLocation = ({ placeholder, units }) => {
 
-
-    const location = useSelector(state => state.weather.location)
-
-
-    // const [location, setLocation] = useState(locations)
-
     const dispatch = useDispatch()
-
-
-
 
     const handleInputCity = (e) => {
         if (e.key === 'Enter') {
             const cityName = e.target.value
-            // setLocation(cityName)
             if (cityName !== '') {
                 dispatch(setActive(null))
                 dispatch(setChange(1))
                 dispatch(setActiveFor5Day(null))
-                // abc(cityName)
-                // dispatch(setNewLocation(cityName))
-
-                // xyz(location, units)
                 dispatch(getAllWeatherDataByCityNameCelcius({ location: cityName, units }))
 
             } else {
@@ -42,18 +28,8 @@ const InputLocation = ({ placeholder, units }) => {
                 })
             }
 
-
         }
     }
-
-    const abc = (cityName) => {
-        dispatch(setNewLocation(cityName))
-    }
-
-    const xyz = (location, units) => {
-        dispatch(getAllWeatherDataByCityNameCelcius({ location, units }))
-    }
-
     return (
         <div className='location-input-container'>
             <input onKeyDown={handleInputCity} className="input-field" placeholder={placeholder} />

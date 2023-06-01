@@ -4,10 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 
 export default function Timer(props) {
-
-
     const [date, setDate] = useState(props.timestamp);
-
     useEffect(() => {
         if (date) {
             const timerID = setInterval(() => tick(), 1000);
