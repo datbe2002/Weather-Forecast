@@ -133,7 +133,7 @@
 
 }
 
-@media only screen and (max-width: #{$ipad-pro-width + 1px}) {
+@media only screen and (max-width: #{$ipad-pro-width + 1px}) and (min-width: #{$mobile-width + 1px}) {
     .forecast-details {
         width: 37vh;
 
