@@ -8,6 +8,8 @@
 
 +5-day Forecast: Below the search box , you will find a 5-day forecast showing the weather forecast for each day, starting from the current date.
 
++You can click on each day to see detail.
+
 -Technologies Used
 
 +React: A JavaScript library.
